@@ -1,0 +1,32 @@
+{
+    "name": "yooslim/test-k",
+    "version": "1.0.0",
+    "description": "Payment exercice.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Slimani Youcef",
+            "email": "slimani.youcef.09@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+		"laravel/framework": "^9.11",
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "YOoSlim\\TestK\\": "src/",
+			"PayPal\\": "libraries/PayPal/src/",
+			"Stripe\\": "libraries/Stripe/src/"
+        }
+    },
+	"autoload-dev": {
+        "psr-4": {
+            "YOoSlim\\TestK\\Tests\\": "tests/"
+        }
+    },
+    "prefer-stable": true
+}
