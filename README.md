@@ -39,7 +39,9 @@ $request = new DetailsRequest(
 	'PAYPAL98765ZYX'
 )
 
-$details = Payment::useProvider(PayPalPaymentProvider::class)->setRequest($request)->get($request)
+$details = Payment::useProvider(PayPalPaymentProvider::class)
+	->setRequest($request)
+	->get($request)
 ```
 ## Authors
 - [@Slimani Youcef](https://www.github.com/yooslim)
