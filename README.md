@@ -12,33 +12,34 @@ use YOoSlim\TestK\Utils\CurrencyEnum;
 use YOoSlim\TestK\Utils\CreditCard;
 use YOoSlim\TestK\Facades\Payment;
 use YOoSlim\TestK\Payment\Providers\PayPalPaymentProvider;
+use YOoSlim\TestK\Payment\Providers\StripePaymentProvider;
 ```
 
 # Create a new payment request and register it
 ```php
 $request = new RegisterRequest(
-	54.25,
+	100.00,
 	CurrencyEnum::EURO,
-	CreditCard('123456789123456')
+	new CreditCard('4000056655665556')
 )
 
-$details = Payment::create($request)
-	-useProvider(PayPalPaymentProvider::class)
+$details = Payment::useProvider(PayPalPaymentProvider::class)
+	->setRequest($request)
 	->register()
 
 // Or use default provider
-$details = Payment::create($request)
-	-useDefaultProvider()
+$details = Payment::useDefaultProvider()
+	->setRequest($request)
 	->register()
 ```
 
 # Get a payment details
 ```php
 $request = new DetailsRequest(
-	'9c7430ae-9a03-11ee-b9d1-0242ac120002'
+	'PAYPAL98765ZYX'
 )
 
-$details = Payment::get($request)
+$details = Payment::useProvider(PayPalPaymentProvider::class)->setRequest($request)->get($request)
 ```
 ## Authors
 - [@Slimani Youcef](https://www.github.com/yooslim)
