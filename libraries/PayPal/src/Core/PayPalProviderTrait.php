@@ -38,6 +38,10 @@ trait PayPalProviderTrait
      */
     public function paypalGetPayment(string $id): array
     {
+        if ($id !== 'PAYPAL98765ZYX') {
+            throw new PayPalResourceNotFoundException();
+        }
+
         return [
             'id' => $id,
             'status' => 'pending',

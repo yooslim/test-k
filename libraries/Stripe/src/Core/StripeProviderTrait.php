@@ -40,6 +40,10 @@ trait StripeProviderTrait
      */
     public function stripeGetPayment(string $id): array
     {
+        if ($id !== 'STRIPE12345XYZ') {
+            throw new StripeResourceNotFoundException();
+        }
+
         return [
             'id' => $id,
             'status' => 'pending',
