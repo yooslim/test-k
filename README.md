@@ -1,3 +1,6 @@
+# Introduction
+This is a practical technical assessment as part of a hiring process.
+
 # After installation
 
 ```bash
@@ -41,7 +44,7 @@ $request = new DetailsRequest(
 
 $details = Payment::useProvider(PayPalPaymentProvider::class)
 	->setRequest($request)
-	->get($request)
+	->get()
 ```
 ## Authors
 - [@Slimani Youcef](https://www.github.com/yooslim)
